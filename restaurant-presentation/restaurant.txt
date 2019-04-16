@@ -1,0 +1,61 @@
+- MVC (Model View Controller): high level design pattern used in modern web
+  application development
+  Model: directly manages the data, logic, and rules of application
+  View: any output representation of information
+  Controller: accepts input and converts it to commands for the model or view
+  - The user sees the view and uses the controller to manipulate the model
+    which then updates the view back to the user
+- Spring Web MVC framework: an implementation of the model-view-controller
+  pattern
+  - provides MVC architecture and components that can be used to develop
+    web apps
+    - Model: encapsulates the app data
+    - View: renders the model data and generates HTML output that the client's
+      browser can interpret
+    - Controller: responsible for processing user requests and building
+      appropriate models and passes it to the view for rendering
+    - The dispatcher servlet handles the client's requests and assigns the
+      mappings and the controllers and DAOs that interact with the DB
+      - the dispatcher servlet then assigns the model to the view resolver which
+        handles the view assignment which then returns the view response back
+        to the user
+  - Deployment descriptor (XML): the deployment descriptor is called
+    web.xml and must resides in the WEB-INF directory
+- Bootstrap: web front-end framework developed by Twitter
+- JSTL: JavaServerPages Standard Tag Library
+- ORM (Object Relational Mapping):
+  - Data persistence: objects and objects's attributes are stored in RAM and
+    if you power-down the system all of this data will be lost -- this Data
+    must be stored persistently in a database
+  - Typical database are tables and rows, but ORM has a mapping layer that
+    converts tables to objects and objects to tables
+    - each object is saved as a row in a DB tables
+    - each row is retrieved as an object in application
+    - if there's a different object then it will be mapped to another table
+  - ORM providers: JPA(Java Persistent API) is an interface; Hibernate is a
+    framework that provides an implementation for JPA; Spring framework supports
+    integration with Hibernate and JPA for resource management, data access
+    object (DAO) implementation, and transaction management
+    - Spring and Hibernate persist the objects to a relational database and
+      provides a way to interact with that data
+- H2 database: embedded, lightweight, JDBC API
+- Session Factory: an interface available in org.hibernate package; a long
+  lived multithreaded object; one session factory should be created for one
+  database; contains Hibernate mapping configurations and is responsible
+  creation and maintenance of all the Hibernate transactions
+- Business Flow Diagram
+- Entity Relationship Diagram: describes the entities in the system; persisted
+  as entities in the database
+  - a customer can only have one cart (1:1)
+  - a cart can have any number of items (1:N)
+    - a cart item cannot belong to another cart
+  - many products can be added to one cart items (N:1) (ordering several of the same item)
+    - a product can be added to many carts but only one cart item
+  - a cart can only have one order (1:1)
+- Cart REST Services: Visit Cart talks to Cart Controller and sends it back
+  and initializes it, then sends request to backend to CRS which communicates
+  with the DB and retrieves any data necessary, then the CRS sends this data
+  to the Cart View
+- Spring Web Flow: a framework that allows the development of a flow in a web
+  application; the flow guides the user from one element of the application to
+  another
